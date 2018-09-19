@@ -1,0 +1,50 @@
+%%HP: T(0)A(D)F(.);
+@ Argumentos:
+@ Autor:
+@ E-mail:
+@ VersiÛn:
+@ Creado con HPUserEdit 6
+
+´
+DO
+"C·lculo del Engranaje"
+{
+{ "Se" "TensiÛn de fatiga corregida(Mpa)" 0 }
+{ "T" "Fuerza tangencial (Newtons)" 0 }
+{ "Ko" "Factor de aplicaciÛn de carga" 0 }
+{ "Km" "Factor de distribuciÛn de carga" 0 }
+{ "Kv" "Factor de velocidad" 0 }
+{ "J" "Factor geomÈtrico AGMA" 0 }
+{ "CC" "(5,10,15)(baja,calidad,A.cald.)" 0 }
+{ "n" "Coeficiente de seguridad" 0 }
+{ "Yn" "factor mod vida 10^7=1" 0 }
+}
+3
+{ }
+{ NOVAL NOVAL NOVAL NOVAL NOVAL NOVAL 10 NOVAL 1 }
+INFORM
+IF
+THEN
+  OBJç DROP ç Se T Ko Km Kv J CC n YN
+
+´ 
+
+'É((n*T*Ko*Km)/(Se*YN*1000000*Kv*J*CC))*1000' EVAL çNUM "El MÛdulo en mm es: "  SWAP + MSGBOX
+
+'É((n*T*Ko*Km)/(Se*YN*1000000*Kv*J*CC))*1000' EVAL 'm' STO
+ª
+
+1. 'R' STO
+
+"SALIR" { { "NO" 1. } { "SÕ" 2. } } 1. CHOOSE DROP 'R' STO
+
+
+ELSE
+END
+
+UNTIL 'R==2.'
+END
+"Ultimo resultado almacenado en la variable 'm' " MSGBOX
+'R' PURGE
+
+ª
